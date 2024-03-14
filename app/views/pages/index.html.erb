@@ -1,0 +1,28 @@
+
+<div class="container mt-5">
+  <h1>Welcome to Country Dishes</h1>
+  <%= form_with(url: root_path, method: :get, local: true) do |form| %>
+    <div class="input-group mb-3">
+      <%= form.text_field :search, class: 'form-control', placeholder: 'Search favorite dishes...' %>
+      <div class="input-group-append">
+        <%= form.submit 'Search', class: 'btn btn-outline-secondary' %>
+      </div>
+    </div>
+  <% end %>
+  <div class="mt-4">
+    <h2>Favorite Dishes</h2>
+    <% @fave_dishes.each do |fave_dish| %>
+      <div class="card mt-2">
+        <div class="card-body">
+          <h5 class="card-title"><%= fave_dish.country_dish.dish.name %></h5>
+          <p class="card-text">
+            User: <%= fave_dish.user.name %><br>
+            Country: <%= fave_dish.country_dish.country.name %><br>
+            Region: <%= fave_dish.country_dish.country.region %><br>
+            Population: <%= fave_dish.country_dish.country.population %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

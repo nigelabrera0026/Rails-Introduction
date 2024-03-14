@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Include application stylesheet -->
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload", media: "all" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
   <title>Document</title>
 </head>
 <body>
