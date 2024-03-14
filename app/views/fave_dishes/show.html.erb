@@ -1,0 +1,15 @@
+
+<div class="container mt-5">
+  <div class="card mt-2">
+    <div class="card-body">
+      <h5 class="card-title"><%= @fave_dish.country_dish.dish.name %></h5>
+      <p class="card-text">
+        User: <%= @fave_dish.user.name %><br>
+        Country: <%= @fave_dish.country_dish.country.name %><br>
+        Region: <%= @fave_dish.country_dish.country.region %><br>
+        Population: <%= @fave_dish.country_dish.country.population %>
+      </p>
+    </div>
+  </div>
+  <%= link_to 'Back to Index', root_path, class: 'btn btn-secondary' %>
+</div>

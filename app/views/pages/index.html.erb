@@ -14,7 +14,7 @@
     <% @fave_dishes.each do |fave_dish| %>
       <div class="card mt-2">
         <div class="card-body">
-          <h5 class="card-title"><%= fave_dish.country_dish.dish.name %></h5>
+          <h5 class="card-title"><%= link_to fave_dish.country_dish.dish.name, fave_dish_path(fave_dish) %></h5>
           <p class="card-text">
             User: <%= fave_dish.user.name %><br>
             Country: <%= fave_dish.country_dish.country.name %><br>
