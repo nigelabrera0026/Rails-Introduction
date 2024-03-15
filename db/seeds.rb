@@ -44,8 +44,8 @@ end
 # Populating Users
 300.times do
   User.create(
-    name:Faker::Internet.username,
-    pwd: Faker::Internet.password(
+    name: Faker::Internet.username,
+    pwd:  Faker::Internet.password(
       min_length:         10,
       max_length:         20,
       mix_case:           true,
