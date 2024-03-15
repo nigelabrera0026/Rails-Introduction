@@ -22,6 +22,7 @@
         </div>
         <div class="card-footer text-muted">
           <%= link_to 'Back to Index', root_path, class: 'btn btn-outline-secondary' %>
+          <%= link_to 'Go Back', request.referer.present? ? :back : root_path, class: 'btn btn-outline-secondary' %>
         </div>
       </div>
     </div>
