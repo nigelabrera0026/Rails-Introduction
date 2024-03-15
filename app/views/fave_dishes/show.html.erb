@@ -1,16 +1,29 @@
 
 <div class="container mt-5">
-  <div class="card mt-2">
-    <div class="card-body">
-      <h5 class="card-title"><%= @fave_dish.country_dish.dish.name %></h5>
-      <p class="card-text">
-        User: <%= @fave_dish.user.name %><br>
-        Country: <%= @fave_dish.country_dish.country.name %><br>
-        Region: <%= @fave_dish.country_dish.country.region %><br>
-        Population: <%= @fave_dish.country_dish.country.population %>
-      </p>
-
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg mt-2">
+        <div class="card-header bg-primary text-white">
+          <h3 class="card-title mb-0"><%= @fave_dish.country_dish.dish.name %></h3>
+        </div>
+        <div class="card-body">
+          <h5 class="card-subtitle mb-2 text-muted">User: <%= @fave_dish.user.name %></h5>
+          <p class="card-text">
+            <strong>Country:</strong> <%= @fave_dish.country_dish.country.name %><br>
+            <strong>Region:</strong> <%= @fave_dish.country_dish.country.region %><br>
+            <strong>Population:</strong> <%= @fave_dish.country_dish.country.population %>
+          </p>
+          <h5 class="card-subtitle mb-2">Ingredients</h5>
+          <ul class="list-group list-group-flush">
+            <% @ingredients.each do |ingredient| %>
+              <li class="list-group-item"><%= ingredient.name %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="card-footer text-muted">
+          <%= link_to 'Back to Index', root_path, class: 'btn btn-outline-secondary' %>
+        </div>
+      </div>
     </div>
   </div>
-  <%= link_to 'Back to Index', root_path, class: 'btn btn-secondary' %>
 </div>
