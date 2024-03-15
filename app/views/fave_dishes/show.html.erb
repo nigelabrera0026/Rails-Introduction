@@ -1,28 +1,31 @@
-
-<div class="container mt-5">
+<div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card shadow-lg mt-2">
-        <div class="card-header bg-primary text-white">
+      <div class="card border-0 shadow-lg">
+        <div class="card-header bg-dark text-white">
           <h3 class="card-title mb-0"><%= @fave_dish.country_dish.dish.name %></h3>
         </div>
         <div class="card-body">
-          <h5 class="card-subtitle mb-2 text-muted">User: <%= @fave_dish.user.name %></h5>
-          <p class="card-text">
+          <h5 class="card-subtitle mb-3 text-muted">User: <%= @fave_dish.user.name %></h5>
+          <p class="card-text mb-4">
             <strong>Country:</strong> <%= @fave_dish.country_dish.country.name %><br>
             <strong>Region:</strong> <%= @fave_dish.country_dish.country.region %><br>
             <strong>Population:</strong> <%= @fave_dish.country_dish.country.population %>
           </p>
+          <!-- Google Static Map -->
+          <div class="google-map mb-4">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @fave_dish.country_dish.country.latitude %>,<%= @fave_dish.country_dish.country.longitude %>&zoom=5&size=600x300&maptype=roadmap&markers=color:red%7C<%= @fave_dish.country_dish.country.latitude %>,<%= @fave_dish.country_dish.country.longitude %>&key=AIzaSyDS1MGIzFSCU4tjWWlPMpiyDjCUAKRjSEY" alt="Google Map of <%= @fave_dish.country_dish.country.name %>" class="img-fluid rounded" />
+          </div>
           <h5 class="card-subtitle mb-2">Ingredients</h5>
-          <ul class="list-group list-group-flush">
+          <ul class="list-group list-group-flush mb-4">
             <% @ingredients.each do |ingredient| %>
-              <li class="list-group-item"><%= ingredient.name %></li>
+              <li class="list-group-item py-2"><%= ingredient.name %></li>
             <% end %>
           </ul>
         </div>
-        <div class="card-footer text-muted">
-          <%= link_to 'Back to Index', root_path, class: 'btn btn-outline-secondary' %>
-          <%= link_to 'Go Back', request.referer.present? ? :back : root_path, class: 'btn btn-outline-secondary' %>
+        <div class="card-footer text-muted d-flex justify-content-between">
+          <%= link_to 'Back to Index', root_path, class: 'btn btn-outline-primary' %>
+          <%= link_to 'Go Back', request.referer.present? ? :back : root_path, class: 'btn btn-outline-primary' %>
         </div>
       </div>
     </div>
