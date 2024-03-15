@@ -75,8 +75,8 @@ client = User.all
   client.each do |users|
     fave = CountryDish.order("RANDOM()").first
     FaveDish.find_or_create_by(
-      user:           users,
-      country_dish:   fave
+      user:         users,
+      country_dish: fave
     )
   end
 end
