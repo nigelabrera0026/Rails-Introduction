@@ -93,3 +93,12 @@ Dish.all.each do |main|
     DishIngredient.find_or_create_by(dish: main, ingredient: sauce)
   end
 end
+
+# Destroy Scripts in chron. order
+# FaveDish.destroy_all
+# CountryDish.destroy_all
+# User.destroy_all
+# Country.destroy_all
+# DishIngredient.destroy_all
+# Dish.destroy_all
+# Ingredient.destroy_all
