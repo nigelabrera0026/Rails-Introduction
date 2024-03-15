@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @fave_dishes = FaveDish.includes(country_dish: { country: :dishes }).page(params[:page]).per(10)
     @regions = Country.distinct.pluck(:region)
     @countries = Country.order(:name).distinct
+    
 
     if params[:search].present?
       @fave_dishes = @fave_dishes.joins(country_dish: { dish: [:dish_ingredients, :ingredients] })

@@ -1,0 +1,11 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <% crumbs.each do |crumb| %>
+      <% if crumb != crumbs.last %>
+        <li class="breadcrumb-item"><%= link_to crumb[:name], crumb[:path] %></li>
+      <% else %>
+        <li class="breadcrumb-item active" aria-current="page"><%= crumb[:name] %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</nav>
